@@ -1,5 +1,5 @@
 from cryptography.fernet import Fernet
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -15,27 +15,21 @@ def hello_world():
 @app.route('/encrypt/<string:valeur>')
 def encryptage(valeur):
     valeur_bytes = valeur.encode()  # Conversion str -> bytes
-    token = f.encrypt(valeur_bytes)  # Encrypt la valeur
+    token = f.encrypt(valeur_bytes)  # Chiffrement de la valeur
     return f"Valeur encryptée : {token.decode()}"  # Retourne le token en str
 
-# Nouvelle route pour déchiffrer une valeur
-@app.route('/decrypt/', methods=['POST'])
-def decrypt():
+# Nouvelle route pour déchiffrer une valeur via URL
+@app.route('/decrypt/<string:encrypted_val>')
+def decryptage(encrypted_val):
     try:
-        # Récupérer les données JSON envoyées dans le corps de la requête
-        data = request.json
-        encrypted_text = data.get('encrypted_text', '')
-        
-        # Vérification que le champ existe
-        if not encrypted_text:
-            return jsonify({"error": "No encrypted_text provided"}), 400
-        
+        # Conversion de la valeur chiffrée en bytes
+        encrypted_bytes = encrypted_val.encode()
         # Déchiffrement de la valeur
-        decrypted_text = f.decrypt(encrypted_text.encode()).decode()
-        return jsonify({"decrypted_text": decrypted_text}), 200
-
+        decrypted_text = f.decrypt(encrypted_bytes).decode()
+        return f"Valeur décryptée : {decrypted_text}"
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        # Gestion des erreurs, par ex. si le texte est invalide
+        return f"Erreur : {str(e)}", 400
 
 if __name__ == "__main__":
     app.run(debug=True)
