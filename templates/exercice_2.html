@@ -3,81 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice 2 - Mise en Page</title>
+    <title>Exercice 2</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 15px;
+        table, th, td {
+            border: 1px solid black;
         }
-        nav {
-            background-color: #f4f4f4;
+        th, td {
             padding: 10px;
             text-align: center;
         }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-        }
-        main {
-            display: flex;
-            padding: 10px;
-        }
-        aside {
-            width: 25%;
-            background: #f9f9f9;
-            padding: 10px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        section {
-            flex: 1;
-            background: #ffffff;
-            padding: 15px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background-color: #4CAF50;
-            color: white;
+        h2, h3 {
             text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            margin-top: 20px;
+        }
+        ul, ol {
+            margin-left: 20px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Bienvenue sur la page</h1>
-    </header>
-    <nav>
-        <a href="#">Accueil</a>
-        <a href="#">Articles</a>
-        <a href="#">Contact</a>
-    </nav>
-    <main>
-        <aside>
-            <h2>Menu</h2>
+    <!-- Première partie -->
+    <h2>Voici la première partie :</h2>
+    <table>
+        <tr>
+            <td colspan="3">un tableau</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>à 6</td>
+            <td>cases</td>
+        </tr>
+    </table>
+
+    <!-- Deuxième partie -->
+    <h2>Voici la deuxième partie :</h2>
+    <h3>Une liste</h3>
+    <ol>
+        <li>premier point
             <ul>
-                <li><a href="#">Lien 1</a></li>
-                <li><a href="#">Lien 2</a></li>
-                <li><a href="#">Lien 3</a></li>
+                <li>rubrique 1</li>
+                <li>rubrique 2</li>
             </ul>
-        </aside>
-        <section>
-            <h2>Contenu Principal</h2>
-            <p>Voici le contenu principal de la page.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Mon Site Web</p>
-    </footer>
+        </li>
+        <li>2e point</li>
+        <li>3e point
+            <ul>
+                <li>rubrique 1</li>
+                <li>rubrique 2</li>
+            </ul>
+        </li>
+    </ol>
+
+    <!-- Troisième partie -->
+    <h2>Voici la troisième partie :</h2>
+    <table>
+        <tr>
+            <td colspan="3">un autre tableau</td>
+        </tr>
+        <tr>
+            <td rowspan="2"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+    </table>
 </body>
 </html>
