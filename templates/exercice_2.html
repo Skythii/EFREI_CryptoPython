@@ -3,34 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice 2</title>
+    <title>Exercice 2 - Mise en Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px;
             text-align: center;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            border: 1px solid #ccc;
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+        }
+        main {
+            display: flex;
             padding: 10px;
         }
-        .section {
-            background-color: #f0f0f0;
-            margin: 10px 0;
+        aside {
+            width: 25%;
+            background: #f9f9f9;
             padding: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            flex: 1;
+            background: #ffffff;
+            padding: 15px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Exercice 2</h1>
-        <div class="section">
-            <p>Ceci est une section de contenu.</p>
-        </div>
-        <div class="section">
-            <p>Une autre section stylisée.</p>
-        </div>
-    </div>
+    <header>
+        <h1>Bienvenue sur la page</h1>
+    </header>
+    <nav>
+        <a href="#">Accueil</a>
+        <a href="#">Articles</a>
+        <a href="#">Contact</a>
+    </nav>
+    <main>
+        <aside>
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="#">Lien 1</a></li>
+                <li><a href="#">Lien 2</a></li>
+                <li><a href="#">Lien 3</a></li>
+            </ul>
+        </aside>
+        <section>
+            <h2>Contenu Principal</h2>
+            <p>Voici le contenu principal de la page.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Mon Site Web</p>
+    </footer>
 </body>
 </html>
