@@ -3,9 +3,9 @@ from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    return render_template('hello.html')
+@app.route('/exercice_1')
+def exercice_1():
+    return render_template('exercice_1.html')
 
 # Route pour chiffrer une valeur avec une clé privée manuelle
 @app.route('/encrypt/<string:key>/<string:valeur>')
