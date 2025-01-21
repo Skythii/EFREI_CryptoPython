@@ -35,6 +35,10 @@ def chenille():
 def Jeu_Des_Base():
     return render_template('Jeu_Des_Base.html')
 
+@app.route('/Outils_JS')
+def Outils_JS():
+    return render_template('Outils_JS.html')
+
 # Route pour chiffrer une valeur avec une clé privée manuelle
 @app.route('/encrypt/<string:key>/<string:valeur>')
 def encryptage(key, valeur):
