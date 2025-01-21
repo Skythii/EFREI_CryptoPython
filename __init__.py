@@ -30,6 +30,10 @@ def valet():
 @app.route('/chenille')
 def chenille():
     return render_template('chenille.html')
+    
+@app.route('/Jeu_Des_Base')
+def Jeu_Des_Base():
+    return render_template('Jeu_Des_Base.html')
 
 # Route pour chiffrer une valeur avec une clé privée manuelle
 @app.route('/encrypt/<string:key>/<string:valeur>')
