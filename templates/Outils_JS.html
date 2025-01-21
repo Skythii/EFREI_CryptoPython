@@ -1,38 +1,50 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<script>
-function affichage(){
-	alert("Tout es OK !");
-}
-function cacher(){
-	document.getElementById('DuTexte').style.display="None";
-}
-function presenter(){
-	document.getElementById('DuTexte').style.display="Block";
-}
-
-function controler(){
-	if(document.getElementById('Control').checked){
-			alert("Bouton option coché");
-		}
-	else{alert("Bouton option NON coché");}		
-}
-
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afficher une image</title>
+    <style>
+        /* Style pour l'image et les boutons */
+        #image-container {
+            text-align: center;
+            margin: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<h1>Mes outils</h1>
-<hr/>
-<h2>Boite de dialogue</h2>
-<button onclick="affichage()">Afficher</button>
-<hr/>
-<p id="DuTexte">Ma phrase de texte</p>
-<button onclick="presenter()">Presenter</button>
-<button onclick="cacher()">Cacher</button>
-<hr/>
-<p>Option<input type="checkbox" id="Control"></p>
-<button onclick="controler()">Check</button>
+    <h1>Afficher une image avec des boutons</h1>
+    <div id="button-container" style="text-align: center;">
+        <!-- Boutons pour afficher les images -->
+        <button onclick="showImage('static/image1.jpg')">Afficher Image 1</button>
+        <button onclick="showImage('static/image2.jpg')">Afficher Image 2</button>
+        <button onclick="showImage('static/image3.jpg')">Afficher Image 3</button>
+    </div>
+    <div id="image-container">
+        <!-- L'image s'affichera ici -->
+        <img id="displayed-image" src="" alt="Cliquez sur un bouton pour afficher une image">
+    </div>
 
-
+    <script>
+        /**
+         * Fonction pour afficher une image dans le conteneur
+         * @param {string} imagePath - Chemin de l'image à afficher
+         */
+        function showImage(imagePath) {
+            const imageElement = document.getElementById('displayed-image');
+            imageElement.src = imagePath; // Change la source de l'image
+            imageElement.alt = `Image affichée depuis ${imagePath}`; // Ajoute une description
+        }
+    </script>
 </body>
 </html>
