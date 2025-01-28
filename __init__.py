@@ -39,6 +39,10 @@ def Jeu_Des_Base():
 def Outils_JS():
     return render_template('Outils_JS.html')
 
+@app.route('/jeu-roulette')
+def jeu_roulette():
+    return render_template('jeu_roulette.html')
+
 # Route pour chiffrer une valeur avec une clé privée manuelle
 @app.route('/encrypt/<string:key>/<string:valeur>')
 def encryptage(key, valeur):
