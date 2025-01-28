@@ -1,10 +1,15 @@
 </html>
 <head>
 <script>
-function lancer(){
-           alert("Le barillet tourne...");
-           loadedChamber = Math.ceil(Math.random() * 6); // Randomly load a chamber
-           console.log("Chamber loaded:", loadedChamber); // Debugging purpose
+let loadedChamber = null; // Variable pour stocker le numéro de la chambre chargée
+
+function lancer() {
+    loadedChamber = Math.ceil(Math.random() * 6); // Génère un chiffre aléatoire entre 1 et 6
+    alert("Le barillet tourne... Chambre chargée : " + loadedChamber); // Affiche le numéro
+    console.log("Chambre chargée :", loadedChamber);
+if(document.getElementById("Br"+Val).style.fill=="red"){alert("Perdu");}
+else{alert("Gagné");}
+
 }
 
 function trou1(){
