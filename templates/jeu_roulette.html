@@ -2,7 +2,9 @@
 <head>
 <script>
 function lancer(){
-           alert("Lancer le barillet");
+           alert("Le barillet tourne...");
+           loadedChamber = Math.ceil(Math.random() * 6); // Randomly load a chamber
+           console.log("Chamber loaded:", loadedChamber); // Debugging purpose
 }
 
 function trou1(){
