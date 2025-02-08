@@ -1,5 +1,5 @@
 from cryptography.fernet import Fernet
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, render_perso, jsonify
 
 app = Flask(__name__)
 
@@ -42,6 +42,10 @@ def Outils_JS():
 @app.route('/jeu_roulette')
 def jeu_roulette():
     return render_template('jeu_roulette.html')
+
+@app.route('/nosvacances')
+def nosvacances():
+    return render_template('nosvacances.html')
 
 # Route pour chiffrer une valeur avec une clé privée manuelle
 @app.route('/encrypt/<string:key>/<string:valeur>')
