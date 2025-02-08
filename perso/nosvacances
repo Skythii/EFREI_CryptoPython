@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinations de Vacances</title>
+  <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" /> <!-- Leaflet CSS -->
+</head>
+<body>
+  <header>
+    <h1>Choisissez votre destination de vacances</h1>
+  </header>
+
+  <div id="carte" style="height: 600px;"></div> <!-- Carte -->
+  
+  <div id="infoDestination">
+    <h2 id="titreDestination"></h2>
+    <img id="imageDestination" src="" alt="Image de la destination" />
+    <p id="descriptionDestination"></p>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> <!-- Leaflet JS -->
+  <script src="script.js"></script> <!-- Lien vers le fichier JS -->
+</body>
+</html>
