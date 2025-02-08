@@ -1,26 +1,210 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Destinations de Vacances</title>
-  <link rel="stylesheet" href="perso/style.css"> <!-- Lien vers le fichier CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" /> <!-- Leaflet CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte des Destinations de Fête</title>
+    <!-- Ajouter les styles de Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Ajouter les styles de Bootstrap pour la modal -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #map { height: 600px; }
+        .modal-body img { width: 100%; }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Choisissez votre destination de vacances</h1>
-  </header>
+    <div class="container mt-5">
+        <h2 class="text-center">Destinations pour Faire la Fête</h2>
+        <div id="map"></div>
+    </div>
 
-  <div id="carte" style="height: 600px;"></div> <!-- Carte -->
-  
-  <div id="infoDestination">
-    <h2 id="titreDestination"></h2>
-    <img id="imageDestination" src="" alt="Image de la destination" />
-    <p id="descriptionDestination"></p>
-  </div>
+    <!-- Modales pour chaque destination -->
+    <!-- Kavos, Corfou -->
+    <div class="modal fade" id="modalKavos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kavos, Corfou</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://example.com/kavos.jpg" alt="Kavos" />
+                    <p>Kavos est réputé pour ses plages animées et sa vie nocturne intense, avec des bars et des clubs ouverts jusqu'à l'aube.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> <!-- Leaflet JS -->
-  <script src="perso/scripts.js"></script> <!-- Lien vers le fichier JS -->
+    <!-- Zante, Grèce -->
+    <div class="modal fade" id="modalZante" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Zante, Grèce</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://example.com/zante.jpg" alt="Zante" />
+                    <p>Zante est un lieu de fête avec de nombreux clubs/boite de nuit et de très belles plages .</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ayia Napa, Chypre -->
+<div class="modal fade" id="modalAyiaNapa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ayia Napa, Chypre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="https://example.com/ayianapa.jpg" alt="Ayia Napa" />
+                <p>Ayia Napa est un lieu incontournable pour les fêtards avec ses clubs énormes, ses bars de plage et ses soirées interminables.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Majorque, Espagne -->
+<div class="modal fade" id="modalMajorque" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Majorque, Espagne</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="https://example.com/majorque.jpg" alt="Majorque" />
+                <p>Majorque est une île populaire qui combine plages magnifiques et vie nocturne animée, avec des clubs de renommée internationale.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dubrovnik, Croatie -->
+<div class="modal fade" id="modalDubrovnik" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Dubrovnik, Croatie</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="https://example.com/dubrovnik.jpg" alt="Dubrovnik" />
+                <p>Dubrovnik est une destination surprenante avec son mélange de culture, de bars en bord de mer et de fêtes pendant l'été.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Saint Julian, Malte -->
+<div class="modal fade" id="modalSaintJulian" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Saint Julian, Malte</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="https://example.com/saintjulian.jpg" alt="Saint Julian" />
+                <p>Saint Julian est un des points chauds de Malte avec ses clubs de plage et ses discothèques animées jusqu'au matin.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Palerme, Sicile -->
+<div class="modal fade" id="modalPalerme" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Palerme, Sicile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="https://example.com/palerme.jpg" alt="Palerme" />
+                <p>Palerme, en Sicile, est une ville dynamique avec une vie nocturne surprenante et des événements qui attirent les fêtards chaque année.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ibiza, Espagne -->
+<div class="modal fade" id="modalIbiza" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ibiza, Espagne</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="https://example.com/ibiza.jpg" alt="Ibiza" />
+                <p>Ibiza est l'une des îles les plus emblématiques de la fête avec des clubs de renommée mondiale et des plages où la fête ne s'arrête jamais.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Ajouter ici les modales pour les autres destinations de la même manière -->
+
+    <!-- Script pour Leaflet et Bootstrap -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Initialiser la carte
+        var map = L.map('map').setView([34.0, 18.0], 3); // Coordonnées centrées sur l'Europe
+
+        // Ajouter la couche de la carte
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Ajouter des points pour chaque destination
+        var destinations = [
+            { name: "Kavos, Corfou", lat: 39.5581, lon: 19.9191, modalId: "#modalKavos" },
+            { name: "Zante, Grèce", lat: 37.7833, lon: 20.9000, modalId: "#modalZante" },
+            { name: "Kavos, Corfou", lat: 39.5581, lon: 19.9191, modalId: "#modalKavos" },
+            { name: "Zante, Grèce", lat: 37.7833, lon: 20.9000, modalId: "#modalZante" },
+            { name: "Ayia Napa, Chypre", lat: 34.9800, lon: 34.9650, modalId: "#modalAyiaNapa" },
+            { name: "Majorque, Espagne", lat: 39.5696, lon: 2.6502, modalId: "#modalMajorque" },
+            { name: "Dubrovnik, Croatie", lat: 42.6407, lon: 18.1147, modalId: "#modalDubrovnik" },
+            { name: "Saint Julian, Malte", lat: 35.9176, lon: 14.5025, modalId: "#modalSaintJulian" },
+            { name: "Palerme, Sicile", lat: 38.1157, lon: 13.3615, modalId: "#modalPalerme" },
+            { name: "Ibiza, Espagne", lat: 38.9833, lon: 1.4000, modalId: "#modalIbiza" },
+
+            // Ajouter les autres destinations ici avec leurs coordonnées et modale correspondante
+        ];
+
+        destinations.forEach(function(destination) {
+            L.marker([destination.lat, destination.lon])
+                .addTo(map)
+                .bindPopup(destination.name)
+                .on('click', function() {
+                    // Ouvrir la modal associée au point cliqué
+                    $(destination.modalId).modal('show');
+                });
+        });
+    </script>
 </body>
 </html>
