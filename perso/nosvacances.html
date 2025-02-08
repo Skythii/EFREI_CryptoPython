@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Destinations de Vacances</title>
-  <link rel="stylesheet" href="perso/style.css"> <!-- Lien vers le fichier CSS -->
+  <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" /> <!-- Leaflet CSS -->
 </head>
 <body>
@@ -21,52 +21,6 @@
   </div>
 
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> <!-- Leaflet JS -->
-  <script>
-    // Le code JavaScript ici
-    const map = L.map('carte').setView([48.8566, 2.3522], 5);
-console.log("Carte initialisée"); // Vérifie que le code arrive ici
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    const destinations = [
-      {
-        nom: "Paris",
-        description: "La capitale de la France, célèbre pour la Tour Eiffel et ses musées.",
-        latitude: 48.8566,
-        longitude: 2.3522,
-        image: "https://via.placeholder.com/400x300?text=Paris"
-      },
-      {
-        nom: "Londres",
-        description: "La capitale du Royaume-Uni, connue pour le Big Ben et Buckingham Palace.",
-        latitude: 51.5074,
-        longitude: -0.1278,
-        image: "https://via.placeholder.com/400x300?text=Londres"
-      },
-      {
-        nom: "Tokyo",
-        description: "Capitale du Japon, une ville moderne mêlant tradition et technologie.",
-        latitude: 35.6762,
-        longitude: 139.6503,
-        image: "https://via.placeholder.com/400x300?text=Tokyo"
-      }
-    ];
-
-    function afficherInfos(destination) {
-      document.getElementById("titreDestination").textContent = destination.nom;
-      document.getElementById("descriptionDestination").textContent = destination.description;
-      document.getElementById("imageDestination").src = destination.image;
-    }
-
-    destinations.forEach(destination => {
-      const marker = L.marker([destination.latitude, destination.longitude]).addTo(map);
-      
-      marker.on('click', function() {
-        afficherInfos(destination);
-      });
-    });
-  </script>
+  <script src="script.js"></script> <!-- Lien vers le fichier JS -->
 </body>
 </html>
