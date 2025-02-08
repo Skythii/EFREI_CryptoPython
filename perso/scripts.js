@@ -1,9 +1,10 @@
 // Initialiser la carte
-const map = L.map('carte').setView([48.8566, 2.3522], 5);  // Par défaut, centré sur Paris avec un zoom de 5
+const map = L.map('carte').setView([48.8566, 2.3522], 5); // Par défaut, centré sur Paris avec un zoom de 5
+console.log("Carte initialisée"); // Vérifie que le code arrive ici 
 
 // Ajouter un fond de carte (tuiles)
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
 // Liste des destinations (tu peux ajouter plus de destinations avec leurs informations)
